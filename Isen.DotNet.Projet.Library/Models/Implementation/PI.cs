@@ -11,7 +11,7 @@ namespace Isen.DotNet.Projet.Library.Models.Implementation
         public Adresse Adresse { get; set; }
 
         public override string Display =>
-            $"[[PI]]{base.Display}|Nom={Nom}|Descriptif={Descriptif}|Catégorie={Categorie}|Adresse={Adresse}";
+            $"{Nom} : {Adresse} | {Categorie}";
     }
 
 }
