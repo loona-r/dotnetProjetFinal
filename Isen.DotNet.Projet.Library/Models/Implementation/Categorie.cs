@@ -9,7 +9,7 @@ namespace Isen.DotNet.Projet.Library.Models.Implementation
         public string Descriptif { get; set; }
 
         public override string Display =>
-            $"[[Catégorie]]{base.Display}|Nom={Nom}|Descriptif={Descriptif}";
+            $"{Nom}";
     }
 
 }
