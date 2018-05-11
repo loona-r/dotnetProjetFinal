@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Isen.DotNet.Projet.Library.Repository.InMemory;
+using Isen.DotNet.Projet.Library.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +24,43 @@ namespace Isen.DotNet.Projet.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            // Utiliser Entity Framework
+            /*services.AddDbContext<ApplicationDbContext>(options => 
+                // Utiliser le provider Sqlite
+                options.UseSqlite(
+                    // Utiliser la clé DefaultConnection
+                    // du fichier de config
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            services
+                .AddMvc()
+                .AddJsonOptions(options => {
+                    options.SerializerSettings.ReferenceLoopHandling =
+                        ReferenceLoopHandling.Ignore;
+                });*/
+            
+            // Injection de dépendances
+            services.AddScoped<IPIRepository, InMemoryPIRepository>();
+            services.AddSingleton<IPIRepository, InMemoryPIRepository>();
+            services.AddScoped<ICategorieRepository, InMemoryCategorieRepository>();
+            services.AddSingleton<ICategorieRepository, InMemoryCategorieRepository>();
+            services.AddScoped<IAdresseRepository, InMemoryAdresseRepository>();
+            services.AddSingleton<IAdresseRepository, InMemoryAdresseRepository>();
+            services.AddScoped<ICommuneRepository, InMemoryCommuneRepository>();
+            services.AddSingleton<ICommuneRepository, InMemoryCommuneRepository>();
+
+            // Injection des repo
+            //services.AddScoped<ICityRepository, DbContextCityRepository>();
+            //services.AddScoped<IPersonRepository, DbContextPersonRepository>();
+
+            // injection d'autres services
+            //services.AddScoped<SeedData>();
+
+            // AddTransient : nouvelle référence à chaque appel
+            // AddSingleton : même référence pour toute l'appli, y compris
+            //        entre différents appels http
+            // AddScoped : même référence mais limitée à la durée de vie
+            //     d'un appel http
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

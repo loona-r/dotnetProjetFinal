@@ -10,10 +10,6 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
     public class InMemoryCategorieRepository : BaseInMemoryRepository<Categorie>, ICategorieRepository
     {
         public InMemoryCategorieRepository() { }
-        public InMemoryCategorieRepository(
-            ILogger<InMemoryCategorieRepository> logger) : base(logger)
-        {
-        }
 
         public override IQueryable<Categorie> ModelCollection
         {

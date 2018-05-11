@@ -10,10 +10,6 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
     public class InMemoryCommuneRepository : BaseInMemoryRepository<Commune>, ICommuneRepository
     {
         public InMemoryCommuneRepository() { }
-        public InMemoryCommuneRepository(
-            ILogger<InMemoryCommuneRepository> logger) : base(logger)
-        {
-        }
 
         public override IQueryable<Commune> ModelCollection
         {

@@ -14,12 +14,6 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
         {
             _communeRepository = communeRepository;
         }
-        public InMemoryAdresseRepository(
-            ILogger<InMemoryAdresseRepository> logger,
-            ICommuneRepository communeRepository) : base(logger)
-        {
-            _communeRepository = communeRepository;
-        }
 
         public override IQueryable<Adresse> ModelCollection
         {

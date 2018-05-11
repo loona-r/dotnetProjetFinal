@@ -17,14 +17,6 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
             _categorieRepository = categorieRepository;
             _adresseRepository = adresseRepository;
         }
-        public InMemoryPIRepository(
-            ILogger<InMemoryPIRepository> logger,
-            ICategorieRepository categorieRepository,
-            IAdresseRepository adresseRepository) : base(logger)
-        {
-            _categorieRepository = categorieRepository;
-            _adresseRepository = adresseRepository;
-        }
 
         public override IQueryable<PI> ModelCollection
         {
