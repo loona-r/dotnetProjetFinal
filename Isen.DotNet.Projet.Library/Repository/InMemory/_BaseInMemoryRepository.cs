@@ -14,6 +14,7 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
     {
         protected IList<T> _modelCollection;
 
+        public BaseInMemoryRepository() { }
         public BaseInMemoryRepository(
             ILogger<BaseInMemoryRepository<T>> logger) : base(logger)
         {

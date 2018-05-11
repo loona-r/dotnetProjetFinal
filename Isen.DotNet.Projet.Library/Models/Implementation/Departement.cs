@@ -6,6 +6,7 @@ namespace Isen.DotNet.Projet.Library.Models.Implementation
     public class Departement : BaseModel
     {
         public string Nom { get; set; }
+        public int Numero { get; set; }
     }
 
 }

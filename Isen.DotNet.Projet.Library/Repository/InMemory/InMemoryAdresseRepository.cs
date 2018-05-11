@@ -9,9 +9,16 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
 {
     public class InMemoryAdresseRepository : BaseInMemoryRepository<Adresse>, IAdresseRepository
     {
-        public InMemoryAdresseRepository(
-            ILogger<InMemoryAdresseRepository> logger) : base(logger)
+        private ICommuneRepository _communeRepository;
+        public InMemoryAdresseRepository(ICommuneRepository communeRepository)
         {
+            _communeRepository = communeRepository;
+        }
+        public InMemoryAdresseRepository(
+            ILogger<InMemoryAdresseRepository> logger,
+            ICommuneRepository communeRepository) : base(logger)
+        {
+            _communeRepository = communeRepository;
         }
 
         public override IQueryable<Adresse> ModelCollection
@@ -22,13 +29,19 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
                 {
                     _modelCollection = new List<Adresse>
                     {
-                        new Adresse { Id = 1, CodePostal = 83000 },
+                        new Adresse
+                        {
+                            Id = 1,
+                            Texte = "468 chemin de la Foux",
+                            CodePostal = 83220,
+                            Commune = _communeRepository.Single(1),
+                            Lattitude = 43.1124007,
+                            Longitude = 6.0298874
+                        },
                     };
                 }
                 return _modelCollection.AsQueryable();
             }
         }
-
-
     }
 }

@@ -6,7 +6,7 @@ namespace Isen.DotNet.Projet.Library.Models.Implementation
     public class Categorie : BaseModel
     {
         public string Nom { get; set; }
-        public float Descriptif { get; set; }
+        public string Descriptif { get; set; }
     }
 
 }

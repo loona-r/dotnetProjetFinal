@@ -13,6 +13,7 @@ namespace Isen.DotNet.Projet.Library.Repository.Base
     {
         protected readonly ILogger<BaseRepository<T>> Logger;
 
+        public BaseRepository() { }
         public BaseRepository(
             ILogger<BaseRepository<T>> logger)
         {

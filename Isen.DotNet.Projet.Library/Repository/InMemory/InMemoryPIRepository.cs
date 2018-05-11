@@ -9,9 +9,21 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
 {
     public class InMemoryPIRepository : BaseInMemoryRepository<PI>, IPIRepository
     {
-        public InMemoryPIRepository(
-            ILogger<InMemoryPIRepository> logger) : base(logger)
+        private ICategorieRepository _categorieRepository;
+        private IAdresseRepository _adresseRepository;
+
+        public InMemoryPIRepository(ICategorieRepository categorieRepository, IAdresseRepository adresseRepository)
         {
+            _categorieRepository = categorieRepository;
+            _adresseRepository = adresseRepository;
+        }
+        public InMemoryPIRepository(
+            ILogger<InMemoryPIRepository> logger,
+            ICategorieRepository categorieRepository,
+            IAdresseRepository adresseRepository) : base(logger)
+        {
+            _categorieRepository = categorieRepository;
+            _adresseRepository = adresseRepository;
         }
 
         public override IQueryable<PI> ModelCollection
@@ -22,13 +34,19 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
                 {
                     _modelCollection = new List<PI>
                     {
-                        new PI { Id = 1 },
+                        new PI
+                        {
+                            Id = 1,
+                            Nom = "Maison de Loona",
+                            Descriptif = "Là où Loona habite",
+                            Categorie = _categorieRepository.Single(1),
+                            Adresse = _adresseRepository.Single(1),
+                        },
                     };
                 }
                 return _modelCollection.AsQueryable();
             }
         }
-
 
     }
 }

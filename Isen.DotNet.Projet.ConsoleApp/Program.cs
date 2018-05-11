@@ -1,4 +1,8 @@
 ﻿using System;
+using Isen.DotNet.Projet.Library;
+using Isen.DotNet.Projet.Library.Models.Implementation;
+using Isen.DotNet.Projet.Library.Repository.InMemory;
+using Isen.DotNet.Projet.Library.Repository.Interfaces;
 
 namespace Isen.DotNet.Projet.ConsoleApp
 {
@@ -6,14 +10,14 @@ namespace Isen.DotNet.Projet.ConsoleApp
     {
         static void Main(string[] args)
         {
-            /*ICityRepository cityRepository = 
-                new InMemoryCityRepository();
-            IPersonRepository personRepository = 
-                new InMemoryPersonRepository(cityRepository);
+            ICategorieRepository categorieRepository = new InMemoryCategorieRepository();
+            ICommuneRepository communeRepository = new InMemoryCommuneRepository();
+            IAdresseRepository adresseRepository = new InMemoryAdresseRepository(communeRepository);
+            IPIRepository PIRepository = new InMemoryPIRepository(categorieRepository, adresseRepository);
             // Etat initial des villes
-            foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);
+            foreach (var c in PIRepository.GetAll()) Console.WriteLine(c);
             Console.WriteLine("- - - - - - - -");
-            // Ajouter une ville
+            /*// Ajouter une ville
             var cannes = new City { Name = "Cannes" };
             cityRepository.Update(cannes);
             foreach(var c in cityRepository.GetAll()) Console.WriteLine(c);

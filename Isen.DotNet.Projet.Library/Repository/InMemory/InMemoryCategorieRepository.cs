@@ -9,6 +9,7 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
 {
     public class InMemoryCategorieRepository : BaseInMemoryRepository<Categorie>, ICategorieRepository
     {
+        public InMemoryCategorieRepository() { }
         public InMemoryCategorieRepository(
             ILogger<InMemoryCategorieRepository> logger) : base(logger)
         {
@@ -22,7 +23,12 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
                 {
                     _modelCollection = new List<Categorie>
                     {
-                        new Categorie { Id = 1 },
+                        new Categorie
+                        {
+                            Id = 1,
+                            Nom = "Domicile",
+                            Descriptif = "Là où on habite",
+                        },
                 };
                 }
                 return _modelCollection.AsQueryable();

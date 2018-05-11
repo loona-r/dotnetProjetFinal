@@ -9,6 +9,7 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
 {
     public class InMemoryDepartementRepository : BaseInMemoryRepository<Departement>, IDepartementRepository
     {
+        public InMemoryDepartementRepository() { }
         public InMemoryDepartementRepository(
             ILogger<InMemoryDepartementRepository> logger) : base(logger)
         {
@@ -22,7 +23,12 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
                 {
                     _modelCollection = new List<Departement>
                     {
-                        new Departement { Id = 1},
+                        new Departement
+                        {
+                            Id = 1,
+                            Nom = "Var",
+                            Numero = 83,
+                        },
                     };
                 }
                 return _modelCollection.AsQueryable();

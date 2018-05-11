@@ -9,6 +9,7 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
 {
     public class InMemoryCommuneRepository : BaseInMemoryRepository<Commune>, ICommuneRepository
     {
+        public InMemoryCommuneRepository() { }
         public InMemoryCommuneRepository(
             ILogger<InMemoryCommuneRepository> logger) : base(logger)
         {
@@ -22,8 +23,14 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
                 {
                     _modelCollection = new List<Commune>
                     {
-                        new Commune { Id = 1 },
-                };
+                        new Commune
+                        {
+                            Id = 1,
+                            Nom = "Le Pradet",
+                            Lattitude = 43.0983906,
+                            Longitude = 6.0038674
+                        },
+                    };
                 }
                 return _modelCollection.AsQueryable();
             }
