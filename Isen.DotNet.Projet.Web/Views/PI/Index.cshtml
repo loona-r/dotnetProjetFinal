@@ -33,6 +33,11 @@
                 <td>@pi.Descriptif</td>
                 <td>@pi.Categorie</td>
                 <td>@pi.Adresse</td>
+                <td>
+                    <a class="btn btn-default" asp-controller="PI" asp-action="Detail" asp-route-id="@pi.Id">Editer</a>
+                    &nbsp;
+                    <a class="btn btn-danger" asp-controller="PI" asp-action="Detail" asp-route-id="@pi.Id">Supprimer</a>
+                </td>
             </tr>
             }
         </tbody>

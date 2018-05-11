@@ -1,0 +1,36 @@
+@using Isen.DotNet.Projet.Library.Models.Implementation;
+@{
+    ViewData["Title"] = "PI (détail)";
+}
+@model PI
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Home <small>/city/detail</small></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" asp-action="Detail">
+            <input type="hidden" value="@Model?.Id" asp-for="Id" />
+            <div>
+                <label for="Nom" class="control-label">Nom du PI :</label>
+                <input type="text" class="form-control"
+                    id="Nom" placeholder="Nom du PI"
+                    value="@Model?.Nom" asp-for="Nom" />
+            </div>
+            <br />
+            <div>
+                <label for="Descriptif" class="control-label">Descriptif du PI :</label>
+                <input type="text" class="form-control"
+                    id="Descriptif" placeholder="Descriptif du PI"
+                    value="@Model?.Descriptif" asp-for="Descriptif" />
+            </div>
+            <br />
+            <br />
+            <input type="submit" class="btn btn-primary" value="Valider" />
+            <a class="btn btn-default" 
+                asp-controller="PI" asp-action="Index">Annuler</a>
+        </form>
+    </div>
+</div>

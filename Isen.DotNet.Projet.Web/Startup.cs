@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Isen.DotNet.Projet.Library.Data;
 using Isen.DotNet.Projet.Library.Repository.InMemory;
 using Isen.DotNet.Projet.Library.Repository.Interfaces;
+using Isen.DotNet.Projet.Library.Repository.DbContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,38 +26,36 @@ namespace Isen.DotNet.Projet.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
             // Utiliser Entity Framework
-            /*services.AddDbContext<ApplicationDbContext>(options => 
+            services.AddDbContext<ApplicationDbContext>(options =>
                 // Utiliser le provider Sqlite
                 options.UseSqlite(
                     // Utiliser la clé DefaultConnection
                     // du fichier de config
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services
-                .AddMvc()
-                .AddJsonOptions(options => {
-                    options.SerializerSettings.ReferenceLoopHandling =
-                        ReferenceLoopHandling.Ignore;
-                });*/
-            
+            services.AddMvc();
+
+
             // Injection de dépendances
-            services.AddScoped<IPIRepository, InMemoryPIRepository>();
+            /*services.AddScoped<IPIRepository, InMemoryPIRepository>();
             services.AddSingleton<IPIRepository, InMemoryPIRepository>();
             services.AddScoped<ICategorieRepository, InMemoryCategorieRepository>();
             services.AddSingleton<ICategorieRepository, InMemoryCategorieRepository>();
             services.AddScoped<IAdresseRepository, InMemoryAdresseRepository>();
             services.AddSingleton<IAdresseRepository, InMemoryAdresseRepository>();
             services.AddScoped<ICommuneRepository, InMemoryCommuneRepository>();
-            services.AddSingleton<ICommuneRepository, InMemoryCommuneRepository>();
+            services.AddSingleton<ICommuneRepository, InMemoryCommuneRepository>();*/
 
             // Injection des repo
-            //services.AddScoped<ICityRepository, DbContextCityRepository>();
-            //services.AddScoped<IPersonRepository, DbContextPersonRepository>();
+            services.AddScoped<IPIRepository, DbContextPIRepository>();
+            services.AddScoped<IAdresseRepository, DbContextAdresseRepository>();
+            services.AddScoped<ICommuneRepository, DbContextCommuneRepository>();
+            services.AddScoped<ICategorieRepository, DbContextCategorieRepository>();
+            services.AddScoped<IDepartementRepository, DbContextDepartementRepository>();
 
             // injection d'autres services
-            //services.AddScoped<SeedData>();
+            services.AddScoped<SeedData>();
 
             // AddTransient : nouvelle référence à chaque appel
             // AddSingleton : même référence pour toute l'appli, y compris
