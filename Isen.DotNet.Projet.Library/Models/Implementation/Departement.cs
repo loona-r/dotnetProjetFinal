@@ -1,8 +1,9 @@
 using System;
+using Isen.DotNet.Projet.Library.Models.Base;
 
 namespace Isen.DotNet.Projet.Library.Models.Implementation
 {
-    public class Departement
+    public class Departement : BaseModel
     {
         public string Nom { get; set; }
     }
