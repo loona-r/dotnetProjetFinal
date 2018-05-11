@@ -7,6 +7,9 @@ namespace Isen.DotNet.Projet.Library.Models.Implementation
     {
         public string Nom { get; set; }
         public int Numero { get; set; }
+
+        public override string Display =>
+            $"[[Departement]]{base.Display}|Nom={Nom}|Numero={Numero}";
     }
 
 }
