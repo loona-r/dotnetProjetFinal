@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "PI (détail)";
 }
-@inject ICommuneRepository _communeRepository;
+@inject ICategorieRepository _categorieRepository;
 @model PI
 
 <div class="row">
@@ -28,14 +28,15 @@
                     id="Descriptif" placeholder="Descriptif du PI"
                     value="@Model?.Descriptif" asp-for="Descriptif" />
             </div>
+            <br />
             <!--<div>
-                <label for="CommuneId">
-                    Commune : 
+                <label for="CategorieId">
+                    Categorie : 
                 </label>
                 @Html.DropDownListFor(
-                    p => p.CommuneId,
-                    new SelectList(_communeRepository.GetAll(),"Id","Nom"),
-                    "<Sélectionnez une ville>",
+                    p => p.CategorieId,
+                    new SelectList(_categorieRepository.GetAll(),"Id","Nom"),
+                    "<Sélectionnez une catégorie>",
                     new { @class = "form-control" })
             </div>-->
             <br />
