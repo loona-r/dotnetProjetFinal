@@ -147,7 +147,7 @@ namespace Isen.DotNet.Projet.Library.Data
                     Nom = "Maison de Loona",
                     Descriptif = "Là où Loona habite",
                     Categorie = _categorieRepository.Single("Domicile"),
-                    Adresse = _adresseRepository.Single("468 chemin de la Fou"),
+                    Adresse = _adresseRepository.Single("468 chemin de la Foux"),
                 },
                 new PI
                 {

@@ -38,25 +38,12 @@
                     Categorie : 
                 </label>
                 @Html.DropDownListFor(
-                    // Champ du modèle (quelle ville faut-il sélectionner)
-                    // Le moteur Razor sait que p est une Personne
-                    // grace à @model PI
                     p => p.CategorieID,
-                    // Remplissage de la liste
                     new SelectList(
-                        // Liste des entités qui peuplent la liste
-                        // voir @using et @inject en haut de fichier
                         _categorieRepository.GetAll(), 
-                        // Champ de clé
                         "Id", 
-                        // Champ d'affichage
                         "Nom"),
-                    // Item par défaut
                     "<Sélectionnez une categorie>",
-                    // Classe CSS
-                    // Le @ n'est pas celui de Razor mais celui du C#
-                    // Si on veut nommer une classe ou un champ avec un 
-                    // mot clé du langage, on le fait précéder d'un @
                     new { @class = "form-control" })
             </div>
 

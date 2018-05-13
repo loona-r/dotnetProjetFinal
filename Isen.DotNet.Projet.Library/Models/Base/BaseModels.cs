@@ -19,6 +19,7 @@ namespace Isen.DotNet.Projet.Library.Models.Base
         {
             dynamic response = new ExpandoObject();
             response.id = Id;
+            response.nom = Nom;
             response.fetch = DateTime.Now;
 
             return response;

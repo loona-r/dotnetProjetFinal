@@ -1,7 +1,10 @@
 @using Isen.DotNet.Projet.Library.Models.Implementation;
+
+@using Isen.DotNet.Projet.Library.Repository.Interfaces;
 @{
     ViewData["Title"] = "Adresse (détail)";
 }
+@inject ICommuneRepository _communeRepository;
 @model Adresse
 
 <div class="row">
@@ -26,6 +29,23 @@
                     id="CodePostal" placeholder="Code Postal de l'Adresse"
                     value="@Model?.CodePostal" asp-for="CodePostal" />
             </div>
+
+            <br />
+
+            <div>
+                <label for="CommuneID">
+                    Commune : 
+                </label>
+                @Html.DropDownListFor(
+                    p => p.CommuneID,
+                    new SelectList(
+                        _communeRepository.GetAll(), 
+                        "Id", 
+                        "Nom"),
+                    "<Sélectionnez une commune>",
+                    new { @class = "form-control" })
+            </div>
+
             <br />
             <div>
                 <label for="Lattitude" class="control-label">Lattitude de l'Adresse :</label>
