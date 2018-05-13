@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     <a class="btn btn-default" 
-        asp-controller="PI" asp-action="Detail">Ajouter une ville...</a>
+        asp-controller="PI" asp-action="Detail">Ajouter un point d'interet...</a>
 </div>
 <div class="row">
     <table class="table table-striped">
@@ -31,8 +31,8 @@
                 <td>@pi.Id</td>
                 <td>@pi.Nom</td>
                 <td>@pi.Descriptif</td>
-                <td>@pi.Categorie</td>
-                <td>@pi.Adresse</td>
+                <td>@pi.Categorie?.Nom</td>
+                <td>@pi.Adresse?.Nom</td>
                 <td>
                     <a class="btn btn-default" asp-controller="PI" asp-action="Detail" asp-route-id="@pi.Id">Editer</a>
                     &nbsp;

@@ -17,5 +17,8 @@ namespace Isen.DotNet.Projet.Library.Repository.DbContext
             ApplicationDbContext context) : base(context)
         {
         }
+        public override IQueryable<Adresse> Includes(
+            IQueryable<Adresse> queryable)
+                => queryable.Include(a => a.PICollection);
     }
 }

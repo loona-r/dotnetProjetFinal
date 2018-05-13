@@ -22,20 +22,36 @@ namespace Isen.DotNet.Projet.Library.Data
             base.OnModelCreating(builder);
 
             // 2 - Configurer les mappings tables / classes
-            builder.Entity<PI>()
-                .ToTable("PI");
+            
 
             builder.Entity<Adresse>()
-                .ToTable("Adresse");
-
+                .ToTable("Adresse")
+                .HasOne(a => a.Commune)
+                .WithMany(c => c.AdresseCollection)
+                .OnDelete(DeleteBehavior.SetNull);
+                
             builder.Entity<Categorie>()
                 .ToTable("Categorie");
 
             builder.Entity<Commune>()
-                .ToTable("Commune");
+                .ToTable("Commune")
+                .HasMany(c => c.AdresseCollection)
+                .WithOne(a => a.Commune)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.Entity<Departement>()
                 .ToTable("Departement");
+
+            builder.Entity<PI>()
+                .ToTable("PI")
+                .HasOne(p => p.Adresse)
+                .WithMany(a => a.PICollection)
+                .HasForeignKey(p => p.AdresseID);
+             builder.Entity<PI>()
+                .ToTable("PI")
+                .HasOne(p => p.Categorie)
+                .WithMany(a => a.PICollection)
+                .HasForeignKey(p => p.CategorieID);
         }
     }
 }
