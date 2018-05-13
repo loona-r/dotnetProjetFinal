@@ -1,12 +1,14 @@
 @using Isen.DotNet.Projet.Library.Models.Implementation;
+@using Isen.DotNet.Projet.Library.Repository.Interfaces;
 @{
     ViewData["Title"] = "PI (détail)";
 }
+@inject ICommuneRepository _communeRepository;
 @model PI
 
 <div class="row">
     <div class="col-md-12">
-        <h1>Home <small>/city/detail</small></h1>
+        <h1>PI <small>/PI/detail</small></h1>
     </div>
 </div>
 <div class="row">
@@ -26,6 +28,16 @@
                     id="Descriptif" placeholder="Descriptif du PI"
                     value="@Model?.Descriptif" asp-for="Descriptif" />
             </div>
+            <!--<div>
+                <label for="CommuneId">
+                    Commune : 
+                </label>
+                @Html.DropDownListFor(
+                    p => p.CommuneId,
+                    new SelectList(_communeRepository.GetAll(),"Id","Nom"),
+                    "<Sélectionnez une ville>",
+                    new { @class = "form-control" })
+            </div>-->
             <br />
             <br />
             <input type="submit" class="btn btn-primary" value="Valider" />

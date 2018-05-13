@@ -1,0 +1,42 @@
+@using Isen.DotNet.Projet.Library.Models.Implementation;
+@{
+    ViewData["Title"] = "Commune (détail)";
+}
+@model Commune
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Commune <small>/commune/detail</small></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" asp-action="Detail">
+            <input type="hidden" value="@Model?.Id" asp-for="Id" />
+            <div>
+                <label for="Nom" class="control-label">Nom de la commune :</label>
+                <input type="text" class="form-control"
+                    id="Nom" placeholder="Nom de la commune"
+                    value="@Model?.Nom" asp-for="Nom" />
+            </div>
+            <br />
+            <div>
+                <label for="Lattitude" class="control-label">Lattitude de la ommune :</label>
+                <input type="double" class="form-control"
+                    id="Lattitude" placeholder="Lattitude de la commune"
+                    value="@Model?.Lattitude" asp-for="Lattitude" />
+            </div>
+            <div>
+                <label for="Longitude" class="control-label">Longitude de la ommune :</label>
+                <input type="double" class="form-control"
+                    id="Longitude" placeholder="Longitude de la commune"
+                    value="@Model?.Longitude" asp-for="Longitude" />
+            </div>
+            <br />
+            <br />
+            <input type="submit" class="btn btn-primary" value="Valider" />
+            <a class="btn btn-default" 
+                asp-controller="Commune" asp-action="Index">Annuler</a>
+        </form>
+    </div>
+</div>
