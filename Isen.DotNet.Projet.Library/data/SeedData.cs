@@ -75,13 +75,13 @@ namespace Isen.DotNet.Projet.Library.Data
             {
                 new Categorie
                 {
-                    Nom = "Domicile",
-                    Descriptif = "Là où on habite"
+                    Nom = "Ecole",
+                    Descriptif = "Lieu où l'on étudie"
                 },
                 new Categorie
                 {
-                    Nom = "Divertissement",
-                    Descriptif = "Là où on s'amuse"
+                    Nom = "Restaurant",
+                    Descriptif = "Lieu pour manger"
                 }
             };
             _categorieRepository.UpdateRange(categories);
@@ -117,19 +117,19 @@ namespace Isen.DotNet.Projet.Library.Data
             {
                 new Adresse
                 {
-                    Nom = "468 chemin de la Foux",
-                    CodePostal = 83220,
-                    Commune = _communeRepository.Single("Le Pradet"),
-                    Lattitude = 43.1124007,
-                    Longitude = 6.0298874
+                    Nom = "Place Georges Pompidou",
+                    CodePostal = 83000,
+                    Commune = _communeRepository.Single("Toulon"),
+                    Lattitude = 43.1206686,
+                    Longitude = 5.9391209
                 },
                 new Adresse
                 {
-                    Nom = "Rue Henri Pertus",
-                    CodePostal = 83000,
-                    Commune = _communeRepository.Single("Toulon"),
-                    Lattitude = 43.120045,
-                    Longitude = 5.935859
+                    Nom = "42 place Paul Flamencq",
+                    CodePostal = 83220,
+                    Commune = _communeRepository.Single("Le Pradet"),
+                    Lattitude = 43.1060325,
+                    Longitude = 6.019856
                 }
             };
             _adresseRepository.UpdateRange(addresses);
@@ -144,17 +144,17 @@ namespace Isen.DotNet.Projet.Library.Data
             {
                 new PI
                 {
-                    Nom = "Maison de Loona",
-                    Descriptif = "Là où Loona habite",
-                    Categorie = _categorieRepository.Single("Domicile"),
-                    Adresse = _adresseRepository.Single("468 chemin de la Foux"),
+                    Nom = "ISEN",
+                    Descriptif = "Ecole d'ingénieur",
+                    Categorie = _categorieRepository.Single("Ecole"),
+                    Adresse = _adresseRepository.Single("Place Georges Pompidou"),
                 },
                 new PI
                 {
-                    Nom = "Maison de Lisa",
-                    Descriptif = "Là où Lisa habite",
-                    Categorie = _categorieRepository.Single("Domicile"),
-                    Adresse = _adresseRepository.Single("Rue Henri Pertus"),
+                    Nom = "Ma Cantine",
+                    Descriptif = "Restaurant de cuisine traditionnelle",
+                    Categorie = _categorieRepository.Single("Restaurant"),
+                    Adresse = _adresseRepository.Single("42 place Paul Flamencq"),
                 }
             };
             _PIRepository.UpdateRange(PIs);
