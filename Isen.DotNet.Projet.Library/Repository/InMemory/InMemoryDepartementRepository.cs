@@ -36,5 +36,13 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
         }
 
 
+
+        /*public virtual Departement Single(int num)
+        {
+            var queryable = ModelCollection;
+            queryable = Includes(queryable);
+            return queryable.SingleOrDefault(c => c.Numero == num);
+        }*/
+
     }
 }

@@ -15,6 +15,7 @@ namespace Isen.DotNet.Projet.Library.Repository.Interfaces
 
         // Unitaires
         T Single(int id);
+        T Single(string nom);
 
         // Deletes
         void Delete(int id);

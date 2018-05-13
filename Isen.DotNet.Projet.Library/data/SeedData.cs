@@ -117,17 +117,17 @@ namespace Isen.DotNet.Projet.Library.Data
             {
                 new Adresse
                 {
-                    Texte = "468 chemin de la Foux",
+                    Nom = "468 chemin de la Foux",
                     CodePostal = 83220,
-                    Commune = _communeRepository.Single(1),
+                    Commune = _communeRepository.Single("Le Pradet"),
                     Lattitude = 43.1124007,
                     Longitude = 6.0298874
                 },
                 new Adresse
                 {
-                    Texte = "Rue Henri Pertus",
+                    Nom = "Rue Henri Pertus",
                     CodePostal = 83000,
-                    Commune = _communeRepository.Single(1),
+                    Commune = _communeRepository.Single("Toulon"),
                     Lattitude = 43.120045,
                     Longitude = 5.935859
                 }
@@ -146,15 +146,15 @@ namespace Isen.DotNet.Projet.Library.Data
                 {
                     Nom = "Maison de Loona",
                     Descriptif = "Là où Loona habite",
-                    Categorie = _categorieRepository.Single(1),
-                    Adresse = _adresseRepository.Single(1),
+                    Categorie = _categorieRepository.Single("Domicile"),
+                    Adresse = _adresseRepository.Single("468 chemin de la Foux"),
                 },
                 new PI
                 {
                     Nom = "Maison de Lisa",
                     Descriptif = "Là où Lisa habite",
-                    Categorie = _categorieRepository.Single(1),
-                    Adresse = _adresseRepository.Single(1),
+                    Categorie = _categorieRepository.Single("Domicile"),
+                    Adresse = _adresseRepository.Single("Rue Henri Pertus"),
                 }
             };
             _PIRepository.UpdateRange(PIs);

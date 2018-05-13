@@ -6,6 +6,7 @@ namespace Isen.DotNet.Projet.Library.Models.Base
     public abstract class BaseModel
     {
         public int Id { get; set; }
+        public string Nom { get; set; }
 
         public virtual string Display =>
             $"[Id={Id}]";

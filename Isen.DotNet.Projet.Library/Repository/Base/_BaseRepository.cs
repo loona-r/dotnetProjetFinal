@@ -50,6 +50,14 @@ namespace Isen.DotNet.Projet.Library.Repository.Base
             return queryable.SingleOrDefault(c => c.Id == id);
         }
 
+        public virtual T Single(string nom)
+        {
+            var queryable = ModelCollection;
+            queryable = Includes(queryable);
+            return queryable.SingleOrDefault(c => c.Nom == nom);
+        }
+
+
         // Méthodes de delete
         public abstract void Delete(int id);
         public virtual void Delete(T model) =>

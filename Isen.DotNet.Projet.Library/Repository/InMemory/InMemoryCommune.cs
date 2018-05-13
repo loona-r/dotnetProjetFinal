@@ -31,7 +31,5 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
                 return _modelCollection.AsQueryable();
             }
         }
-
-
     }
 }

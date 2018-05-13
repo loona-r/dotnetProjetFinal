@@ -26,7 +26,7 @@ namespace Isen.DotNet.Projet.Library.Repository.InMemory
                         new Adresse
                         {
                             Id = 1,
-                            Texte = "468 chemin de la Foux",
+                            Nom = "468 chemin de la Foux",
                             CodePostal = 83220,
                             Commune = _communeRepository.Single(1),
                             Lattitude = 43.1124007,

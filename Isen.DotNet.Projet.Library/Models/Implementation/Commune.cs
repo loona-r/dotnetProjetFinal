@@ -5,7 +5,6 @@ namespace Isen.DotNet.Projet.Library.Models.Implementation
 {
     public class Commune : BaseModel
     {
-        public string Nom { get; set; }
         public double Lattitude { get; set; }
         public double Longitude { get; set; }
 

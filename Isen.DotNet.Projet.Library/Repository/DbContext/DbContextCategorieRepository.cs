@@ -16,6 +16,7 @@ namespace Isen.DotNet.Projet.Library.Repository.DbContext
         public DbContextCategorieRepository(
             ApplicationDbContext context) : base(context)
         {
+
         }
     }
 }
